@@ -173,8 +173,6 @@ void VescDriver::vescPacketCallback(const std::shared_ptr<VescPacket const>& pac
     state_msg->state.distance_traveled = values->tachometer_abs();
     state_msg->state.fault_code = values->fault_code();
 
-    std::cout << "values is equal to " << packet; 
-    ROS_INFO("ROS values", packet);
     state_pub_.publish(state_msg);
   }
   else if (packet->name() == "FWVersion")
